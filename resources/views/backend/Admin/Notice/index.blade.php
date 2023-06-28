@@ -17,7 +17,11 @@
             </div>
             <!-- End Page Title -->
             <hr class="line">
-
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
             <!-- tab-->
             <section class="section">
                 <div class="row">
@@ -53,7 +57,7 @@
                                                 <h1 class="card-title">Notice | May 2023</h1>
 
                                                 <!-- Table with stripped rows -->
-                                                <table class="table table-striped datatable">
+                                                <table class="table table-striped datatable" id="notice_table">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">#.</th>
@@ -63,13 +67,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach ($notices as $ntc)
+
                                                         <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>2023-05-01</td>
-                                                            <td>ទិវាពលកម្មអន្តជាតិ (International Labour Day)</td>
+                                                            <th scope="row">{{ $ntc->noticeId}}</th>
+                                                            <td>{{ $ntc->date}}</td>
+                                                            <td>{{ $ntc->event}}</td>
                                                             <td><!-- edit -->
                                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                                  Edit
+                                                                    <a href="{{ route('editNotice')}}'.$row->id.'">Edit</a>
                                                                 </button>
 
                                                                 <div class="modal fade" id="edit" tabindex="-1">
@@ -120,181 +126,7 @@
                                                                 </div><!-- End delete Modal-->
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>2023-05-04</td>
-                                                            <td>ពិធីបុណ្យវិសាខបូជា (Visaka Bochea)</td>
-                                                            <td><!-- edit -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                                  Edit
-                                                                </button>
-
-                                                                <div class="modal fade" id="edit" tabindex="-1">
-                                                                    <div class="modal-dialog modal-lg">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="card-title">Edit Notice</h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                                    aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="card">
-                                                                                <div class="card-body">
-                                                                                    <h5 class="card-title"></h5>
-                                                                                    <!-- edit Form -->
-                                                                                    @include('backend.Admin.Notice.editNotice')
-
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- End edit Modal-->
-
-                                                                <!-- delete Modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
-                                                                    Delete
-                                                                </button>
-                                                                <div class="modal fade" id="delete" tabindex="-1">
-                                                                    <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <h5 class="modal-title">Confirmation</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            Are you sure to delete this record?
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                        <button type="button" class="btn btn-primary">Delete</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                </div><!-- End delete Modal-->
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>2023-05-08</td>
-                                                            <td>ព្រះរាជពិធីច្រត់ព្រះនង្គ័ល (Royal Ploughing Ceremony)</td>
-                                                            <td><!-- edit -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                                  Edit
-                                                                </button>
-
-                                                                <div class="modal fade" id="edit" tabindex="-1">
-                                                                    <div class="modal-dialog modal-lg">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="card-title">Edit Notice</h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                                    aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="card">
-                                                                                <div class="card-body">
-                                                                                    <h5 class="card-title"></h5>
-                                                                                    <!-- edit Form -->
-                                                                                    @include('backend.Admin.Notice.editNotice')
-
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- End edit Modal-->
-
-                                                                <!-- delete Modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
-                                                                    Delete
-                                                                </button>
-                                                                <div class="modal fade" id="delete" tabindex="-1">
-                                                                    <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <h5 class="modal-title">Confirmation</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            Are you sure to delete this record?
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                        <button type="button" class="btn btn-primary">Delete</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                </div><!-- End delete Modal-->
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">4</th>
-                                                            <td>2023-05-14</td>
-                                                            <td>ព្រះរាជពិធីបុណ្យចម្រើនព្រះជន
-                                                                ព្រះករុណាព្រះបាទសម្ដេចព្រះបរមនាថ នរោត្តម សីហមុនី
-                                                                ព្រះមហាក្សត្រនៃព្រះរាជាណាចក្រកម្ពុជា (King Sihamoni's
-                                                                Birthday)
-                                                            </td>
-                                                            <td><!-- edit -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                                  Edit
-                                                                </button>
-
-                                                                <div class="modal fade" id="edit" tabindex="-1">
-                                                                    <div class="modal-dialog modal-lg">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="card-title">Edit Notice</h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                                    aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="card">
-                                                                                <div class="card-body">
-                                                                                    <h5 class="card-title"></h5>
-                                                                                    <!-- edit Form -->
-                                                                                    @include('backend.Admin.Notice.editNotice')
-
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div><!-- End edit Modal-->
-
-                                                                <!-- delete Modal -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
-                                                                    Delete
-                                                                </button>
-                                                                <div class="modal fade" id="delete" tabindex="-1">
-                                                                    <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                        <h5 class="modal-title">Confirmation</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            Are you sure to delete this record?
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                        <button type="button" class="btn btn-primary">Delete</button>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                </div><!-- End delete Modal-->
-                                                            </td>
-                                                        </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                                 <!-- End Table with stripped rows -->

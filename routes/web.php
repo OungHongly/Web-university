@@ -48,6 +48,13 @@ Route::prefix('')->group(function(){
     Route::get('/student',[StudentController::class, 'index']);
 
     Route::get('/subject',[SubjectController::class, 'index']);
+
+    Route::get('/notice/add', [NoticeController::class, 'addNotice'])->name('addNotice');
+
+    Route::get('/notice/edit', [NoticeController::class, 'editNotice'])->name('editNotice');
+
+    Route::get('/notice/edit_validate', [NoticeController::class, 'edit_validate'])->name('editNotice_validate');
+
 });
 
 /*-------- auth --------*/

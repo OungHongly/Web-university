@@ -25,7 +25,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
         //return to_route('/dashboard');
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->withSuccess('Login Successful!');
         //return redirect()->action([DashboardController::class, 'index']);
     }
 

@@ -73,7 +73,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div><!-- End Revenue Card -->
 
@@ -91,10 +90,8 @@
                                         </div>
                                         <div class="ps-3">
                                             <h6>222</h6>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -117,45 +114,7 @@
                                 </div>
 
                             </div>
-                        </div><!-- End Revenue Card -->
-                        <div class="col-xxl-2 col-md-6">
-                            <div class="card-bd info-card revenue-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">TOTAL Revenue</h5>
-
-                                    <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-currency-dollar"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <h6>$2,450</h6>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div><!-- End Revenue Card -->
-                        <div class="col-xxl-2 col-md-6">
-                            <div class="card-bd info-card paid-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">TOTAL Paid</h5>
-
-                                    <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-piggy-bank"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <h6>$3,264</h6>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div><!-- End Revenue Card -->
+                        </div>
                         <hr class="line">
                         <div class="card">
                             <div class="card-body">
@@ -393,29 +352,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($notices as $ntc)
+
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>2023-05-01</td>
-                                                <td>ទិវាពលកម្មអន្តជាតិ (International Labour Day)</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>2023-05-04</td>
-                                                <td>ពិធីបុណ្យវិសាខបូជា (Visaka Bochea)</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>2023-05-08</td>
-                                                <td>ព្រះរាជពិធីច្រត់ព្រះនង្គ័ល (Royal Ploughing Ceremony)</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>2023-05-14</td>
-                                                <td>ព្រះរាជពិធីបុណ្យចម្រើនព្រះជន ព្រះករុណាព្រះបាទសម្ដេចព្រះបរមនាថ នរោត្តម
-                                                    សីហមុនី
-                                                    ព្រះមហាក្សត្រនៃព្រះរាជាណាចក្រកម្ពុជា (King Sihamoni's Birthday)</td>
-                                            </tr>
-                                        </tbody>
+                                                <th scope="row">{{ $ntc->noticeId}}</th>
+                                                <td>{{ $ntc->date}}</td>
+                                                <td>{{ $ntc->event}}</td>
+                                            @endforeach
                                     </table>
                                     <!-- End Table notice -->
 
