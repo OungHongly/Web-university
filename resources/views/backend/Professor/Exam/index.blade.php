@@ -61,6 +61,11 @@
                     <td>Cell</td>
                     <td>Cell</td>
                   </tr>
+                  <tr class="table-dark">
+                    <th scope="row">Dark</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                  </tr>
                 </tbody>
               </table>
               <!-- End Table Variants -->
