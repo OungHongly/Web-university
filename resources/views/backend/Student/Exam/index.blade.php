@@ -68,7 +68,7 @@
                                                     <tr>
                                                         <td>3</td>
                                                         <td>Java</td>
-                                                        <td>Ms.Sorphea </td>
+                                                        <td>Mr.hort </td>
                                                         <td>12/12/2022</td>
                                                         <td>10:15AM</td>
                                                         <td>11:30AM</td>
