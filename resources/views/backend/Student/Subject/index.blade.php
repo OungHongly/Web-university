@@ -113,6 +113,16 @@
                             </div>
                             <p class="mb-1">lessons : 1 of 7 | 2nd Semester</p>
                         </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="card-image">
+                                <img src="{{ url('backend/img/J II.jpg') }}" alt="">
+                            </div>
+                            <div class="d-flex w-100 justify-content-between">
+                                <h3 class="mb-1">Java Programming II</h3>
+                                <small>7 days ago</small>
+                            </div>
+                            <p class="mb-1">lessons : 1 of 7 | 2nd Semester</p>
+                        </a>
                     </div><!-- End List group Advanced Content -->
                 </div>
             </div>
