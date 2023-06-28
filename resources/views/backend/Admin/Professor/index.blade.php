@@ -31,11 +31,6 @@
                                         data-bs-target="#professor" type="button" role="tab" aria-controls="professor"
                                         aria-selected="true">Professor</button>
                                 </li>
-                                <!--<li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="editProfessor-tab" data-bs-toggle="tab"
-                                        data-bs-target="#editProfessor" type="button" role="tab"
-                                        aria-controls="editProfessor" aria-selected="false">Edit Professor</button>
-                                </li>-->
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="addProfessors-tab" data-bs-toggle="tab"
                                         data-bs-target="#addProfessors" type="button" role="tab"
@@ -49,7 +44,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Professor List</h5>
                                             <!-- Table with stripped rows -->
-                                            <table class="table table-striped datatable">
+                                            <table class="table table-striped datatable" id = "teacher_table">
                                                 <thead>
                                                     <tr>
                                                         <th>No.</th>
@@ -132,18 +127,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="tab-pane fade" id="editProfessor" role="tabpanel"
-                                    aria-labelledby="editProfessor-tab">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Edit Professor</h5>
-
-                                            <!-- Edit Professor. Form -->
-                                            <!--include('backend.Admin.Professor.editProfessor')
-
-                                        </div>
-                                    </div>
-                                </div>-->
                                 <div class="tab-pane fade" id="addProfessors" role="tabpanel"
                                     aria-labelledby="addProfessors-tab">
                                     <div class="card">
