@@ -1,27 +1,28 @@
 <!-- Add Professor Form -->
-<form>
+@csrf
+<form action="/professor/add">
     <div class="row mb-3">
         <label for="inputfirstname" class="col-sm-2 col-form-label">Firstname</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputfirstname">
+            <input type="text" class="form-control" id="inputfirstname" name="firstname">
         </div>
     </div>
     <div class="row mb-3">
         <label for="inputlastname" class="col-sm-2 col-form-label">Lastname</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputlastname">
+            <input type="text" class="form-control" id="inputlastname" name="lastname">
         </div>
     </div>
     <div class="row mb-3">
         <label for="inputusername" class="col-sm-2 col-form-label">Username</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputusername">
+            <input type="text" class="form-control" id="inputusername" name="username">
         </div>
     </div>
     <div class="row mb-3">
         <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control">
+            <input type="password" class="form-control" name="password">
         </div>
     </div>
     <fieldset class="row mb-3">
@@ -41,47 +42,20 @@
             </div>
         </div>
     </fieldset>
-
-    <div class="row mb-3">
-        <label for="inputdob" class="col-sm-2 col-form-label">Date of Birth</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" id="inputdob">
-        </div>
     </div>
-
     <div class="row mb-3">
         <label for="inputPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
         <div class="col-sm-10">
-            <input type="number" class="form-control" id="inputPhoneNumber">
+            <input type="number" class="form-control" id="inputPhoneNumber" name="phoneNumber">
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" name="email">
         </div>
     </div>
-
-    <div class="row mb-3">
-        <label for="uploadPhoto" class="col-sm-2 col-form-label">Upload Photo</label>
-        <div class="col-sm-10">
-            <input class="form-control" type="file" id="uploadPhoto">
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label class="col-sm-2 col-form-label">Select Multi Course</label>
-        <div class="col-sm-10">
-            <select class="form-select" multiple aria-label="multiple select example">
-                <!--<option readonly>Open this select menu</option>-->
-                <option value="python">Python</option>
-                <option value="c#">C#</option>
-                <option value="laravel">Laravel</option>
-            </select>
-        </div>
-    </div>
-
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">

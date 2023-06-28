@@ -44,6 +44,7 @@ Route::prefix('')->group(function(){
     Route::get('/notice',[NoticeController::class, 'index']);
 
     Route::get('/professor',[ProfessorController::class, 'index']);
+    Route::get('/professor/add',[ProfessorController::class, 'add'])->name('add');
 
     Route::get('/student',[StudentController::class, 'index']);
 
