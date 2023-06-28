@@ -97,6 +97,7 @@
                                                         <td>10:15AM</td>
                                                         <td>11:30AM</td>
                                                     </tr>
+<<<<<<< HEAD
                                                     <tr>
                                                         <td>3</td>
                                                         <td>Manou</td>
@@ -121,6 +122,9 @@
                                                         <td>10:15AM</td>
                                                         <td>11:30AM</td>
                                                     </tr>
+=======
+                                                    
+>>>>>>> 752ec97c756fdad7283b5c07497f2b0d6ec9c8c5
                                                 </tbody>
                                             </table>
                                             <!-- End Table with stripped rows -->
