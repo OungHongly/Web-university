@@ -47,10 +47,18 @@ Route::prefix('')->group(function(){
     Route::get('/notice',[NoticeController::class, 'index']);
 
     Route::get('/professor',[ProfessorController::class, 'index']);
+    Route::get('/professor/add',[ProfessorController::class, 'add'])->name('add');
 
     Route::get('/student',[StudentController::class, 'index']);
 
     Route::get('/subject',[SubjectController::class, 'index']);
+
+    Route::get('/notice/add', [NoticeController::class, 'addNotice'])->name('addNotice');
+
+    Route::get('/notice/edit', [NoticeController::class, 'editNotice'])->name('editNotice');
+
+    Route::get('/notice/edit_validate', [NoticeController::class, 'edit_validate'])->name('editNotice_validate');
+
 });
 
 /*-------- auth --------*/
