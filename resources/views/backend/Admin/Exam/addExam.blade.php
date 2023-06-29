@@ -1,5 +1,6 @@
 <!-- add Exam Form -->
-<form class="row g-3">
+<form class="row g-3" action="{{ url('insert-data') }}" method="POST">
+    {{ csrf_field('') }}
     <div class="row mb-3">
         <label for="paperCode" class="col-sm-2 col-form-label">Paper Code</label>
         <div class="col-sm-10">
@@ -12,6 +13,12 @@
         <div class="col-sm-10">
             <select id="txtSubjectname" class="form-select">
                 <option selected>Choose subject name...</option>
+                <option>System Analysis</option>
+                <option>Java</option>
+                <option>Python</option>
+                <option>Web Developer</option>
+                <option>Oracle</option>
+                <option>Linux</option>
                 <option>...</option>
             </select>
         </div>
@@ -22,6 +29,9 @@
         <div class="col-sm-10">
             <select id="txtCoursename" class="form-select">
                 <option selected>Choose course name...</option>
+                <option>MIS</option>
+                <option>BIT</option>
+                <option>Design</option>
                 <option>...</option>
             </select>
         </div>

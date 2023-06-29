@@ -63,6 +63,11 @@ Route::prefix('')->group(function(){
 
     Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
 
+    Route::get('add','ExamController@add');
+    Route::post('/exam',[ExamController::class, 'insert']);
+    Route::post('insert-data','ExamController@insert');
+
+    
 });
 
 /*-------- auth --------*/
@@ -112,3 +117,4 @@ Route::prefix('/teacher')->group(function(){
 
     Route::get('/notice',[NoticeController::class,'indexTeacher']);
 });
+
