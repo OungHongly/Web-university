@@ -13,7 +13,7 @@ class NoticeController extends Controller
     /* -------- admin -----------*/
     public function index(){
         $notice = Notices::all();
-        #$notice = DB::select('select * from notices');
+        // $notice = DB::select('select * from notices');
         return view('backend/Admin/Notice.index', ['notices'=> $notice]);
     }
 
