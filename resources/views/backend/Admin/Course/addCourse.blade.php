@@ -1,27 +1,19 @@
 <!-- add course Form -->
-<form class="row g-3">
-    <div class="col-md-12">
-        <label for="inputName5" class="form-label">Course Name</label>
-        <input type="text" class="form-control" id="inputName5">
-    </div>
+<form class="row g-3" action="/course/add">
     <div class="col-md-6">
-        <label for="inputDuration" class="form-label">Duration</label>
-        <input type="text" class="form-control" id="inputDuration">
+        
+        <label for="txtcourse_id" class="form-label">Course ID</label>
+        <input type="text" class="form-control" id="txtcourse_id" name="txtcourse_id">
+        @if($errors->has('txtcourse_id'))
+            <span class="text-danger">{{ $errors->first('txtcourse_id')}}</span>
+        @endif
     </div>
-    <div class="col-md-6">
-        <label for="inputPrice" class="form-label">Price</label>
-        <input type="text" class="form-control" id="inputPrice">
-    </div>
-    <div class="col mb-12">
-        <label class="col-sm-2 col-form-label">Select Multi Course</label>
-        <div class="col-sm-12">
-            <select class="form-select" multiple aria-label="multiple select example">
-                <!--<option readonly>Open this select menu</option>-->
-                <option value="python">Python</option>
-                <option value="c#">C#</option>
-                <option value="laravel">Laravel</option>
-            </select>
-        </div>
+    <div class="col-md-6"> 
+        <label for="txtcourse_name" class="form-label">Course Name</label>
+        <input type="text" class="form-control" id="txtcourse_name" name="txtcourse_name">
+        @if($errors->has('txtcourse_name'))
+            <span class="text-danger">{{ $errors->first('txtcourse_id')}}</span>
+        @endif
     </div>
     <!--<fieldset>Subject
         <div class="form-check">

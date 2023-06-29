@@ -35,7 +35,10 @@ Route::prefix('')->group(function(){
     //Route::get('/admin',[AdminController::class, 'index']);
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/course',[CourseController::class, 'index']);
+    Route::get('/course',[CourseController::class, 'index'])->name('course');
+    Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
+    Route::get('/course/delete',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
+    
 
     Route::get('/exam',[ExamController::class, 'index']);
 
