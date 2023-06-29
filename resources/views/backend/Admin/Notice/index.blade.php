@@ -74,9 +74,9 @@
                                                             <td>{{ $ntc->date}}</td>
                                                             <td>{{ $ntc->event}}</td>
                                                             <td><!-- edit -->
-                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                                    <a href="{{ route('editNotice')}}'.$row->id.'">Edit</a>
-                                                                </button>
+                                                                <a href="/notice/edit/{{ $notices[0]->noticeId}}"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                                                                    Edit
+                                                                </button></a>
 
                                                                 <div class="modal fade" id="edit" tabindex="-1">
                                                                     <div class="modal-dialog modal-lg">
@@ -105,7 +105,7 @@
 
                                                                 <!-- delete Modal -->
                                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
-                                                                    Delete
+                                                                     Delete
                                                                 </button>
                                                                 <div class="modal fade" id="delete" tabindex="-1">
                                                                     <div class="modal-dialog modal-dialog-centered">
@@ -116,10 +116,11 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             Are you sure to delete this record?
+
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                        <button type="button" class="btn btn-primary">Delete</button>
+                                                                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                        <a href="/notice/delete/{{ $ntc->noticeId}}"><button type="submit" class="btn btn-primary">Delete</button></a>
                                                                         </div>
                                                                     </div>
                                                                     </div>

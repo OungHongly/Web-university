@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Notices;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Dashboard\Eloquent\Model;
 
@@ -76,4 +77,8 @@ class NoticeController extends Controller
         return redirect()->route('edit_validate')->withSuccess('Notice is edited!');
     }
 
+    public function deleteNotice($id){
+        DB::delete('delete from notices where noticeId = ?', [$id]);
+        return redirect('/notice')->with('Success', 'Notice is deleted!');
+    }
 }
