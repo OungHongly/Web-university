@@ -183,6 +183,7 @@
 
                                                 </tr>
                                             </thead>
+                                            
                                             <tbody>
                                                 @foreach ($courses as $cou)
                                                 <tr>
