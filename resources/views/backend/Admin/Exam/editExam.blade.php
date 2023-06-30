@@ -2,11 +2,12 @@
 <form class="row g-3">
 
     <div class="row mb-3">
+        <!--
         <label for="txtScheduleID" class="col-sm-2 col-form-label">Schedule ID</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" name="txtScheduleID" id="txtScheduleID">
         </div>
-        <!--<div class="col-sm-10">
+        <div class="col-sm-10">
             <select id="txtScheduleID" class="form-select">
                 <option selected>Choose schedule ID...</option>
                 <option>...</option>
@@ -26,6 +27,12 @@
         <div class="col-sm-10">
             <select id="txtSubjectname" class="form-select">
                 <option selected>Choose subject name...</option>
+                <option>System Analysis</option>
+                <option>Java</option>
+                <option>Python</option>
+                <option>Web Developer</option>
+                <option>Oracle</option>
+                <option>Linux</option>
                 <option>...</option>
             </select>
         </div>
@@ -36,6 +43,9 @@
         <div class="col-sm-10">
             <select id="txtCoursename" class="form-select">
                 <option selected>Choose course name...</option>
+                <option>MIS</option>
+                <option>BIT</option>
+                <option>Design</option>
                 <option>...</option>
             </select>
         </div>

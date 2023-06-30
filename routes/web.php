@@ -37,7 +37,8 @@ Route::prefix('')->group(function(){
 
     Route::get('/course',[CourseController::class, 'index'])->name('course');
     Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
-    Route::get('/course/delete',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
+    Route::get('/course/edit',[CourseController::class, 'edit_validate'])->name('edit_validate');
+    Route::get('/course/delete/{id}',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
     
 
     Route::get('/exam',[ExamController::class, 'index']);
@@ -62,6 +63,11 @@ Route::prefix('')->group(function(){
 
     Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
 
+    Route::get('add','ExamController@add');
+    Route::post('/exam',[ExamController::class, 'insert']);
+    Route::post('insert-data','ExamController@insert');
+
+    
 });
 
 /*-------- auth --------*/
@@ -111,3 +117,4 @@ Route::prefix('/teacher')->group(function(){
 
     Route::get('/notice',[NoticeController::class,'indexTeacher']);
 });
+

@@ -43,11 +43,26 @@ class CourseController extends Controller
         ]);
         return  redirect()->route('addCourse')->withSuccess('Add completed.');
     }
+    public function edit_validate(Request $request){
+        $request -> validate([
+            'txtcourse_id' => 'required',
+            'txtcourse_name'  => 'required'
+        ]);
+
+        $data = $request->all();
+        if(!empty($data['txtcourse_id'])){
+            $form_data = array(
+                'course_id'  => $data['txtcourse_id'],
+                'course_name'=> $data['txtcourse_name']
+            );
+        }
+        Course::whereID($data['course_id'])->update($form_data);
+        return redirect()->route('edit_validate')->withSuccess('Course is edited!');
+    }
 
     public function deleteCourse($id){
-        $data = Course::findOrFail($id);
-        $data -> delete();
-        return  redirect()->route('course')->withSuccess('Add completed.');
+        DB::delete('DELETE from courses where course_id = ?', [$id]);
+        return redirect('/course')->with('Success', 'Course is deleted!');
     }
     
 }

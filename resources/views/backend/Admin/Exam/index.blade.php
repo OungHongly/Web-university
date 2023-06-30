@@ -61,14 +61,15 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($exam as $ex)
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>B001</td>
-                                                        <td>Oracle </td>
-                                                        <td>MIS </td>
-                                                        <td>12/12/2022</td>
-                                                        <td>8:15PM</td>
-                                                        <td>10:17PM</td>
+                                                        <td>{{ $ex->id }}</td>
+                                                        <td>{{ $ex->papercode }}</td>
+                                                        <td>{{ $ex->subject }}</td>
+                                                        <td>{{ $ex->course }}</td>
+                                                        <td>{{ $ex->date }}</td>
+                                                        <td>{{ $ex->starttime }}</td>
+                                                        <td>{{ $ex->endtime }}</td>
                                                         <td><!-- edit -->
                                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
                                                               Edit
@@ -122,67 +123,7 @@
                                                             </div><!-- End delete Modal-->
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>B002</td>
-                                                        <td>C# </td>
-                                                        <td>MIS </td>
-                                                        <td>13/12/2022</td>
-                                                        <td>8:15PM</td>
-                                                        <td>10:17PM</td>
-                                                        <td><!-- edit -->
-                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
-                                                              Edit
-                                                            </button>
-
-                                                            <div class="modal fade" id="edit" tabindex="-1">
-                                                                <div class="modal-dialog modal-lg">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="card-title">Edit Exam</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="card">
-                                                                            <div class="card-body">
-                                                                                <h5 class="card-title"></h5>
-                                                                                <!-- edit Form -->
-                                                                                @include('backend.Admin.Exam.editExam')
-
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div><!-- End edit Modal-->
-
-                                                            <!-- delete Modal -->
-                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
-                                                                Delete
-                                                            </button>
-                                                            <div class="modal fade" id="delete" tabindex="-1">
-                                                                <div class="modal-dialog modal-dialog-centered">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                    <h5 class="modal-title">Confirmation</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        Are you sure to delete this record?
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                    <button type="button" class="btn btn-primary">Delete</button>
-                                                                    </div>
-                                                                </div>
-                                                                </div>
-                                                            </div><!-- End delete Modal-->
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                             <!-- End Table with stripped rows -->

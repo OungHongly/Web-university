@@ -190,9 +190,57 @@
                                                     <td>{{ $cou->course_id }}</td>
                                                     <td>{{ $cou->course_name }}</td>
                                                     <td><!--Edit-->
-                                                        <button type="button" class="btn btn-primary">Add</button>
+                                                        <button   button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                                                            Edit
+                                                        </button>
+
+                                                        <div class="modal fade" id="edit" tabindex="-1">
+                                                            <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="card-title">Edit Subject</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <h5 class="card-title"></h5>
+                                                                            <!-- edit Form -->
+                                                                            @include('backend.Admin.Subject.editSubject')
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- End edit Modal-->                            
                                                         
-                                                        <button type="button" class="btn btn-primary">Delete</button>
+                                                        <!-- delete Modal -->
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
+                                                                     Delete
+                                                                </button>
+                                                                <div class="modal fade" id="delete" tabindex="-1">
+                                                                    <div class="modal-dialog modal-dialog-centered">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                        <h5 class="modal-title">Confirmation</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            Are you sure to delete this record?
+
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                                        <a href="/course/delete/{{ $cou->course_id }}"><button type="submit" class="btn btn-primary">Delete</button></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div><!-- End delete Modal-->
                                                     </td>
                                                 </tr>
                                                 @endforeach
