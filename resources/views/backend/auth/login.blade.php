@@ -83,7 +83,7 @@
                                                     id="username" required>
                                                 <div class="invalid-feedback">Please enter your username.</div>
                                                 @if ($errors->has('username'))
-                                                    <span class="text-danger">{{ $error->first('username') }}</span>
+                                                    <span class="text-danger">{{ $errors->first('username') }}</span>
                                                 @endif
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                                 required>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                             @if ($errors->has('password'))
-                                                <span class="text-danger">{{ $error->first('password') }}</span>
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
                                             @endif
                                         </div>
 

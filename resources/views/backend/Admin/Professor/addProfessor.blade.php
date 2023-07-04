@@ -1,6 +1,6 @@
 <!-- Add Professor Form -->
 @csrf
-<form action="/professor/add">
+<form class="row g-3" action="/professor/add">
     <div class="row mb-3">
         <label for="inputfirstname" class="col-sm-2 col-form-label">Firstname</label>
         <div class="col-sm-10">
@@ -60,7 +60,6 @@
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <button type="submit" class="btn btn-primary">Add Professor</button>
-            <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
     </div>
 

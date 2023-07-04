@@ -30,6 +30,7 @@ class AuthController extends Controller
         }
         //return to_route('/dashboard');
         return redirect("backend/auth.login")->with('error','Login details are not valid');
+        return redirect()->route('dashboard')->withSuccess('Login Successful!');
         //return redirect()->action([DashboardController::class, 'index']);
     }
     public function dashboard()

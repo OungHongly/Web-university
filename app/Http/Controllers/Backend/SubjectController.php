@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Hash;
+use DB;
+use App\Models\Exam;
 
 class SubjectController extends Controller
 {
     /* ---------- admin ----------*/
     public function index(){
-        return view('backend/admin/Subject.index');
+        return view('backend/admin/subject.index');
     }
 
 
@@ -28,4 +31,6 @@ class SubjectController extends Controller
     public function lecture(){
         return view ('backend/professor/Lecture.index');
     }
+
+
 }

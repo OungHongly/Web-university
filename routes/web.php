@@ -35,7 +35,11 @@ Route::prefix('')->group(function(){
     //Route::get('/admin',[AdminController::class, 'index']);
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/course',[CourseController::class, 'index']);
+    Route::get('/course',[CourseController::class, 'index'])->name('course');
+    Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
+    Route::get('/course/edit',[CourseController::class, 'edit_validate'])->name('edit_validate');
+    Route::get('/course/delete/{id}',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
+    
 
     Route::get('/exam',[ExamController::class, 'index']);
 
@@ -44,11 +48,26 @@ Route::prefix('')->group(function(){
     Route::get('/notice',[NoticeController::class, 'index']);
 
     Route::get('/professor',[ProfessorController::class, 'index']);
+
     Route::get('/professor/add',[ProfessorController::class, 'add'])->name('add');
 
     Route::get('/student',[StudentController::class, 'index']);
 
     Route::get('/subject',[SubjectController::class, 'index']);
+
+    Route::get('/notice/add', [NoticeController::class, 'addNotice'])->name('addNotice');
+
+    Route::get('/notice/edit/{id}', [NoticeController::class, 'editNotice'])->name('editNotice');
+
+    Route::get('/notice/edit_validate', [NoticeController::class, 'edit_validate'])->name('editNotice_validate');
+
+    Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
+
+    Route::get('add','ExamController@add');
+    Route::post('/exam',[ExamController::class, 'insert']);
+    Route::post('insert-data','ExamController@insert');
+
+    
 });
 
 /*-------- auth --------*/
@@ -98,3 +117,4 @@ Route::prefix('/teacher')->group(function(){
 
     Route::get('/notice',[NoticeController::class,'indexTeacher']);
 });
+

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('gender', 5);
             $table->string('phoneNumber', 50);
             $table->string('email', 100);
-            $table->unsignedInteger('role_id')->index('role_id');
+            $table->unsignedInteger('role_id')->index('FK_users_roles_role_id');
             $table->timestamp('createdAt')->useCurrent();
             $table->timestamp('updatedAt')->useCurrent();
         });

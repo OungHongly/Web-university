@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
-use DB;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ProfessorController extends Controller
 {
     public function index(){
         //$teacher_arr = DB::table('users')->get();
         //dd($teacher_arr);
-        $professor = DB::select('select * FROM users u INNER JOIN roles r ON u.role_id=r.role_id WHERE role_type=\'teacher\''); 
+        $professor = DB::select('select * FROM users u INNER JOIN roles r ON u.role_id=r.role_id WHERE role_type=\'teacher\'');
         return view('backend/admin/Professor.index',['users' => $professor]);
     }
     public function add(Request $request){
@@ -27,7 +28,8 @@ class ProfessorController extends Controller
             'email'=>'required'
         ]);
         $data = $request->all();
-        Teacher::create([
+        User::create([
+            'user_id' => null,
             'first_name'=> $data['firstname'],
             'last_name'=> $data['lastname'],
             'username'=> $data['username'],
@@ -36,6 +38,6 @@ class ProfessorController extends Controller
             'phoneNumber'=> $data['phoneNumber'],
             'email'=> $data['email'],
         ]);
-        return view('backend/admin/Professor.index',['users'=>$professor])->with('Success','Teacher added');
+        return view('backend/admin/Professor.index',['users'=>$data])->with('Success','Teacher added');
     }
-}       
+}
