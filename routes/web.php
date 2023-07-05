@@ -37,7 +37,7 @@ Route::prefix('')->group(function(){
 
     Route::get('/course',[CourseController::class, 'index'])->name('course');
     Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
-    Route::get('/course/edit',[CourseController::class, 'edit_validate'])->name('edit_validate');
+    Route::put('/course/{id}', [CourseController::class, 'updateCourse']);
     Route::get('/course/delete/{id}',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
     
 
