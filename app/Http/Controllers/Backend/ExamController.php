@@ -2,38 +2,52 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\ExamInsert;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \Illuminate\Http\Response;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use DB;
-use App\Models\Exam;
+use App\Models\Exams;
+use GrahamCampbell\ResultType\Success;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Dashboard\Eloquent\Model;
+
 
 class ExamController extends Controller
 {
     /* ---- admin --------*/
     public function index(){
-        $exam = DB::select('SELECT * FROM exam');
-        return view('backend/admin/exam.index',['exam'=>$exam]);
+        $exam = Exams::all();
+        //$exam = DB::select('SELECT * FROM exam');
+        return view('backend/Admin/Exam.index',['exams'=>$exam]);
     }
 
-    public function add(){
-        return view('addExam');
+    public function addExam(Request $request){
+        $request->validate([
+            'paperCode' =>'required',
+            'txtSubjectname'=>'required',
+            'txtCoursename'=>'required',
+            'txtDate'=>'required |date',
+            'txtstartTime'=>'required',
+            'txtendTime'=>'required',
+            
+        ]);
+
+        $data = $request->all();
+        Exams::create([
+            'examid'    => null,
+            'papercode' =>$data['paperCode'],
+            'subject'   =>$data['txtSubjectname'],
+            'course'    =>$data['txtCoursename'],
+            'date'      =>$data['txtDate'],
+            'starttime' =>$data['txtstartTime'],
+            'endtime'   =>$data['txtendTime'],
+        ]);
+        //Exams::save();
+        return redirect()->route('addExam')->withSuccess('Exam is created!');
     }
 
-    public function insert(Request $request){
-        $exam = new Exam();
-        $exam->papercode = $request->input('papercode');
-        $exam->subject = $request->input('subject');
-        $exam->course = $request->input('course');
-        $exam->date = $request->input('date');
-        $exam->starttime = $request->input('starttime');
-        $exam->endtime = $request->input('endtime');
-        $exam->save();
-        return redirect('backend/admin/exam.index')->with('status', "Insert Successfully");
-
+    public function editExam($id){
+        $exams = Exam::select('select * from exam where id = ?',[$id]);
+        #$notice = Notices::select($id);
+        return view('backend/Admin/Exam.editExam', ['exam'=>$exam]);
     }
 
 

@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Exam extends Model
+class Exams extends Model
 {
-
-    use HasFactory;
-
-    protected $table = 'exam';
+    protected $table = 'exams';
+    public $timestamps = false;
     protected $fillable = [
+        'examid',
         'papercode',
         'subject',
         'course',
@@ -19,4 +18,6 @@ class Exam extends Model
         'starttime',
         'endtime'
     ];
+
+    use HasFactory;
 }

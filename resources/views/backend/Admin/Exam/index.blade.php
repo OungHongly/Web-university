@@ -13,6 +13,11 @@
             </nav>
         </div><!-- End Page Title -->
         <hr class="line">
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
 
         <!-- tab-->
         <section class="section">
@@ -61,9 +66,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($exam as $ex)
+                                                    @foreach ($exams as $ex)
                                                     <tr>
-                                                        <td>{{ $ex->id }}</td>
+                                                        <th scope="row">{{ $ex->examid}}</th>
                                                         <td>{{ $ex->papercode }}</td>
                                                         <td>{{ $ex->subject }}</td>
                                                         <td>{{ $ex->course }}</td>

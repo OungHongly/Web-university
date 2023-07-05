@@ -43,25 +43,34 @@ class CourseController extends Controller
         ]);
         return  redirect()->route('addCourse')->withSuccess('Add completed.');
     }
-    public function edit_validate(Request $request){
-        $request -> validate([
-            'txtcourse_id' => 'required',
-            'txtcourse_name'  => 'required'
+    // In your controller
+    // In your controller
+    public function updateCourse(Request $request, $id){
+        // Validate the input data
+        $request->validate([
+            'course_id' => 'required',
+            'course_name' => 'required'
         ]);
 
-        $data = $request->all();
-        if(!empty($data['txtcourse_id'])){
-            $form_data = array(
-                'course_id'  => $data['txtcourse_id'],
-                'course_name'=> $data['txtcourse_name']
-            );
-        }
-        Course::whereID($data['course_id'])->update($form_data);
-        return redirect()->route('edit_validate')->withSuccess('Course is edited!');
+        // Update the course fields using the DB facade
+        DB::table('courses')->where('course_id', $id)->update([
+            'course_id' => $request->input('course_id'),
+            'course_name' => $request->input('course_name')
+        ]);
+
+        // Redirect back with a success message
+        return redirect('/course')->with('Success', 'Course is updated!');
     }
 
+
+
     public function deleteCourse($id){
-        DB::delete('DELETE from courses where course_id = ?', [$id]);
+        // Assuming you have a model called Post
+        // $post = Post::find($id); // Find the post by id
+        // $post->delete(); // Delete the post
+
+        // DB::delete('DELETE from courses where course_id = ?', [$id]);
+        DB::table('courses')->where('course_id', $id)->delete(); // Delete the post by id
         return redirect('/course')->with('Success', 'Course is deleted!');
     }
     

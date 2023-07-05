@@ -37,7 +37,7 @@ Route::prefix('')->group(function(){
 
     Route::get('/course',[CourseController::class, 'index'])->name('course');
     Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
-    Route::get('/course/edit',[CourseController::class, 'edit_validate'])->name('edit_validate');
+    Route::put('/course/{id}', [CourseController::class, 'updateCourse']);
     Route::get('/course/delete/{id}',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
 
 
@@ -63,9 +63,14 @@ Route::prefix('')->group(function(){
 
     Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
 
-    Route::get('add','ExamController@add');
+    /*Route::get('add','ExamController@add');
     Route::post('/exam',[ExamController::class, 'insert']);
-    Route::post('insert-data','ExamController@insert');
+    Route::post('insert-data','ExamController@insert');*/
+    //Route::get('add', 'ExamController@add');
+    Route::get('/exam/add',[ExamController::class, 'addExam'])->name('addExam');
+    Route::get('/exam/edit/{id}',[ExamController::class, 'editExam'])->name('editExam');
+    Route::get('/exam/edit_validate',[ExamController::class, 'edit_validate'])->name('editExam_validate');
+    Route::get('/exam/delete/{id}',[ExamController::class, 'deleteExam'])->name('deleteExam');
 
 
 });
