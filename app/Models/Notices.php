@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notices extends Model
 {
-    protected $table ='Notices';
+    protected $table ='notices';
     public $timestamps = false;
 
     protected $fillable=[

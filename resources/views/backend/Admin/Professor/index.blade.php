@@ -15,6 +15,11 @@
         </div>
         <!-- End Page Title -->
         <hr class="line">
+        @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+        @endif
         <!-- tab-->
         <section class="section">
             <div class="row">

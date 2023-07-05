@@ -16,7 +16,7 @@ class ProfessorController extends Controller
         $professor = DB::select('select * FROM users u INNER JOIN roles r ON u.role_id=r.role_id WHERE role_type=\'teacher\'');
         return view('backend/admin/Professor.index',['users' => $professor]);
     }
-    public function add(Request $request){
+    public function addProfessor(Request $request){
         $request->validate([
             'firstname'=>'required',
             'lastname'=>'required',
@@ -27,17 +27,20 @@ class ProfessorController extends Controller
             'phoneNumber'=>'required',
             'email'=>'required'
         ]);
+
         $data = $request->all();
-        User::create([
+        #User::create([
+        DB::table('users')->insert([
             'user_id' => null,
             'first_name'=> $data['firstname'],
             'last_name'=> $data['lastname'],
             'username'=> $data['username'],
-            'password'=> $data['password'],
-            'gender'=> $data['rdmale'],
+            'password'=> Hash::make($data['password']),
+            'gender'=> 'male',
             'phoneNumber'=> $data['phoneNumber'],
             'email'=> $data['email'],
+            'role_id'=> 7
         ]);
-        return view('backend/admin/Professor.index',['users'=>$data])->with('Success','Teacher added');
+        return redirect()->route('addProfessor')->withSuccess('Teacher added');
     }
 }

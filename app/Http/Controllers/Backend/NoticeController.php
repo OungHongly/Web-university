@@ -53,29 +53,44 @@ class NoticeController extends Controller
         return redirect()->route('addNotice')->withSuccess('Notice is created!');
     }
 
-    public function editNotice($id){
-        $notices = Notices::select('select * from notices where noticeId = ?',[$id]);
-        #$notice = Notices::select($id);
-        return ['notices'=> $notices];
-    }
-
-    public function edit_validate(Request $request){
+    public function updateNotice(Request $request, $id){
+        //validate the input data
         $request -> validate([
             'txtDate' =>'required',
             'txtEvent'=>'required'
         ]);
-
-        $data = $request->all();
-        if(!empty($data['txtDate'])){
-            $form_data = array(
-                'noticeId'  => $data['hidden_id'],
-                'date'      => $data['txtDate'],
-                'event'     => $data['txtEvent']
-            );
-        }
-        Notices::whereID($data['hidden_id'])->update($form_data);
-        return redirect()->route('edit_validate')->withSuccess('Notice is edited!');
+        // Update the notice fields using the DB facade
+        DB::table('notices')->where('noticeId', $id)->update([
+            'date'    => $request->input('txtDate'),
+            'event'   => $request->input('txtEvent')
+        ]);
+        // Redirect back with a success message
+        return redirect('/notice')->withSuccess('Notice is updated!');
     }
+
+    // public function editNotice($id){
+    //     $notices = Notices::select('select * from notices where noticeId = ?',[$id]);
+    //     #$notice = Notices::select($id);
+    //     return ['notices'=> $notices];
+    // }
+
+    // public function edit_validate(Request $request){
+    //     $request -> validate([
+    //         'txtDate' =>'required',
+    //         'txtEvent'=>'required'
+    //     ]);
+
+    //     $data = $request->all();
+    //     if(!empty($data['txtDate'])){
+    //         $form_data = array(
+    //             'noticeId'  => $data['hidden_id'],
+    //             'date'      => $data['txtDate'],
+    //             'event'     => $data['txtEvent']
+    //         );
+    //     }
+    //     Notices::whereID($data['hidden_id'])->update($form_data);
+    //     return redirect()->route('edit_validate')->withSuccess('Notice is edited!');
+    // }
 
     public function deleteNotice($id){
         DB::delete('delete from notices where noticeId = ?', [$id]);

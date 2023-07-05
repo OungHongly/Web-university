@@ -49,7 +49,7 @@ Route::prefix('')->group(function(){
 
     Route::get('/professor',[ProfessorController::class, 'index']);
 
-    Route::get('/professor/add',[ProfessorController::class, 'add'])->name('add');
+    Route::get('/professor/add',[ProfessorController::class, 'addProfessor'])->name('addProfessor');
 
     Route::get('/student',[StudentController::class, 'index']);
 
@@ -57,9 +57,11 @@ Route::prefix('')->group(function(){
 
     Route::get('/notice/add', [NoticeController::class, 'addNotice'])->name('addNotice');
 
-    Route::get('/notice/edit/{id}', [NoticeController::class, 'editNotice'])->name('editNotice');
+    Route::get('/notice/edit{id}', [NoticeController::class, 'updateNotice'])->name('updateNotice');
 
-    Route::get('/notice/edit_validate', [NoticeController::class, 'edit_validate'])->name('editNotice_validate');
+    //Route::get('/notice/edit/{id}', [NoticeController::class, 'editNotice'])->name('editNotice');
+
+    // Route::get('/notice/edit_validate', [NoticeController::class, 'edit_validate'])->name('editNotice_validate');
 
     Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
 
