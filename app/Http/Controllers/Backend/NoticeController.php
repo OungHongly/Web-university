@@ -56,12 +56,12 @@ class NoticeController extends Controller
     public function editNotice($id){
         $notices = Notices::select('select * from notices where noticeId = ?',[$id]);
         #$notice = Notices::select($id);
-        return view('backend/Admin/Notice.editNotice', ['notices'=>$notices]);
+        return ['notices'=> $notices];
     }
 
     public function edit_validate(Request $request){
         $request -> validate([
-            'txtDate' =>'required |date',
+            'txtDate' =>'required',
             'txtEvent'=>'required'
         ]);
 

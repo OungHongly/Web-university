@@ -74,9 +74,9 @@
                                                             <td>{{ $ntc->date}}</td>
                                                             <td>{{ $ntc->event}}</td>
                                                             <td><!-- edit -->
-                                                                <a href="/notice/edit/{{ $notices[0]->noticeId}}"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
                                                                     Edit
-                                                                </button></a>
+                                                                </button>
 
                                                                 <div class="modal fade" id="edit" tabindex="-1">
                                                                     <div class="modal-dialog modal-lg">
@@ -116,11 +116,10 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             Are you sure to delete this record?
-
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                         <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                        <a href="/notice/delete/{{ $ntc->noticeId}}"><button type="submit" class="btn btn-primary">Delete</button></a>
+                                                                        <button type="submit" class="btn btn-primary">Delete</button>
                                                                         </div>
                                                                     </div>
                                                                     </div>

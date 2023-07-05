@@ -39,7 +39,7 @@ Route::prefix('')->group(function(){
     Route::get('/course/add',[CourseController::class, 'addCourse'])->name('addCourse');
     Route::get('/course/edit',[CourseController::class, 'edit_validate'])->name('edit_validate');
     Route::get('/course/delete/{id}',[CourseController::class, 'deleteCourse'])->name('deleteCourse');
-    
+
 
     Route::get('/exam',[ExamController::class, 'index']);
 
@@ -67,7 +67,7 @@ Route::prefix('')->group(function(){
     Route::post('/exam',[ExamController::class, 'insert']);
     Route::post('insert-data','ExamController@insert');
 
-    
+
 });
 
 /*-------- auth --------*/
@@ -79,13 +79,19 @@ Route::prefix('/')->group(function(){
 
     Route::get('/login',[AuthController::class, 'index'])->name('login');
 
-    Route::post('/login',[AuthController::class, 'login'])->name('login');
+    //Route::get('/login',[AuthController::class, 'login'])->name('login');
+
+    Route::get('/customLogin',[AuthController::class, 'customLogin'])->name('customLogin');
+
+    Route::get('/customRegister', [AuthController::class, 'customRegister'])->name('customRegister');
+
+
 });
 
 
 /*-------- student --------*/
 Route::prefix('/student')->group(function(){
-    Route::get('/dashboard',[DashboardController::class,'indexStudent']);
+    Route::get('/dashboard',[DashboardController::class,'indexStudent'])->name('studentDashboard');
 
     Route::get('/exam',[ExamController::class, 'indexStudent']);
 
@@ -102,10 +108,9 @@ Route::prefix('/student')->group(function(){
     Route::get('/notice',[NoticeController::class,'indexStudent']);
 });
 
-
 /*-------- professor --------*/
 Route::prefix('/teacher')->group(function(){
-    Route::get('/dashboard',[DashboardController::class,'indexTeacher']);
+    Route::get('/dashboard',[DashboardController::class,'indexTeacher'])->name("teacherDashboard");
 
     Route::get('/subjectProgress',[SubjectController::class, 'subjectProgress']);
 

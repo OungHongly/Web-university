@@ -52,7 +52,7 @@
                         <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                             <div class="d-flex justify-content-center py-4">
-                                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                                <a href="" class="logo d-flex align-items-center w-auto">
                                     <img src="backend/img/logos.png" alt="">
                                     <span class="d-none d-lg-block"><span>UNIS.<span></span>
                                 </a>
@@ -60,9 +60,9 @@
 
                             <div class="card mb-3">
 
-                                @if (session()->has('success'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('success') }}
+                                @if (session()->has('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('error') }}
                                     </div>
                                 @endif
 
@@ -73,10 +73,10 @@
                                         <p class="text-center small">Enter your username & password to login</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate action="{{ route('dashboard') }}">
+                                    <form class="row g-3 needs-validation" novalidate action="{{ route('customLogin') }}">
                                         @csrf
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Username</label>
+                                            <label for="username" class="form-label">Username</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                 <input type="text" name="username" class="form-control"
@@ -89,7 +89,7 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Password</label>
+                                            <label for="password" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="password"
                                                 required>
                                             <div class="invalid-feedback">Please enter your password!</div>

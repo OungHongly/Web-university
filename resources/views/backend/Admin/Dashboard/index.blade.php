@@ -17,6 +17,12 @@
         <section class="section dashboard">
             <div class="row">
 
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+
                 <!-- Left side columns -->
                 <div class="col-lg-15">
                     <div class="row">
