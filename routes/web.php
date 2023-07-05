@@ -63,10 +63,11 @@ Route::prefix('')->group(function(){
 
     Route::get('/notice/delete/{id}', [NoticeController::class, 'deleteNotice'])->name('deleteNotice');
 
-    Route::get('add','ExamController@add');
-    Route::post('/exam',[ExamController::class, 'insert']);
-    Route::post('insert-data','ExamController@insert');
-
+    //Route::get('add', 'ExamController@add');
+    Route::get('/exam/add',[ExamController::class, 'addExam'])->name('addExam');    
+    Route::get('/exam/edit/{id}',[ExamController::class, 'editExam'])->name('editExam');
+    Route::get('/exam/edit_validate',[ExamController::class, 'edit_validate'])->name('editExam_validate');
+    Route::get('/exam/delete/{id}',[ExamController::class, 'deleteExam'])->name('deleteExam');
     
 });
 
